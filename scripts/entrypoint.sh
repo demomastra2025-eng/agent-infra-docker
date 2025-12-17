@@ -22,12 +22,12 @@ fi
 
 case "$1" in
   chill)
+    APP_PORT="${PORT:-8080}"
+    echo "Running: uvicorn app.main:app --host 0.0.0.0 --port ${APP_PORT}"
+    exec uvicorn app.main:app --host 0.0.0.0 --port "${APP_PORT}"
     ;;
   *)
     echo "Running: $@"
     exec "$@"
     ;;
 esac
-
-echo ">>> Hello World!"
-while true; do sleep 18000; done

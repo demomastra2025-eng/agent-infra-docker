@@ -49,8 +49,8 @@ RUN mkdir -p /tmp/uv-cache /var/log/app \
 # Switch to non-root user
 USER ${USER}
 
-# Expose port
-EXPOSE 8000
+# Expose default port (Railway uses $PORT at runtime)
+EXPOSE 8080
 
 # Use exec form for better signal handling
 ENTRYPOINT ["/app/scripts/entrypoint.sh"]
